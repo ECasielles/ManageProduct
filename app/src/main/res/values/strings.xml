@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ManageProduct</string>
+    <string name="txvId">Id</string>
+    <string name="txvName">Nombre</string>
+    <string name="txvDesc">Descripción</string>
+    <string name="txvBrand">Marca</string>
+    <string name="txvPrice">Precio</string>
+    <string name="txvStock">Stock</string>
+    <string name="txvImagen">Imagen</string>
+    <string name="txvDose">Dosis</string>
 </resources>

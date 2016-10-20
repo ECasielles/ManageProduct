@@ -1,23 +1,34 @@
 package com.mercacortex.manageproduct.model;
 
+import java.util.UUID;
+
 /**
  * Class: Product
- * Description: Object from the Product DB
+ * Description: Product Object Model from the Product DB
  */
 
 public class Product {
     private int mId;
     private String mName;
     private String mDescription;
+    private String mDose;
     private String mBrand;
     private double mPrice;
     private int mStock;
     private int mImage; // Saved as a string at the DB
 
-    // All fields but mId, which is obtained from the DB
-    public Product(String mName, String mDescription, String mBrand, double mPrice, int mStock, int mImage) {
+    // Constructor for all fields but mId, which is obtained from the DB
+    public Product(String mName, String mDescription, String mDose, String mBrand, double mPrice, int mStock, int mImage) {
+
+        // Podemos asignar el Id con la clase UUID de forma automática y única
+        // Se suele usar de forma profesional para firmar documentos (desde Java7)
+        // Lo hace teniendo en cuenta los datos del servidor, números aleatorios y
+        // la hora actual en ms.
+        //
+        //this.mId = UUID.randomUUID().toString();
         this.mName = mName;
         this.mDescription = mDescription;
+        this.mDose = mDose;
         this.mBrand = mBrand;
         this.mPrice = mPrice;
         this.mStock = mStock;
@@ -46,6 +57,14 @@ public class Product {
 
     public void setmDescription(String mDescription) {
         this.mDescription = mDescription;
+    }
+
+    public String getmDose() {
+        return mDose;
+    }
+
+    public void setmDose(String mDose) {
+        this.mDose = mDose;
     }
 
     public String getmBrand() {
@@ -81,18 +100,36 @@ public class Product {
     }
 
     @Override
+    // Hay que personalizar el toString
     public String toString() {
-        return "Product{" +
-                "mId=" + mId +
-                ", mName='" + mName + '\'' +
-                ", mDescription='" + mDescription + '\'' +
-                ", mBrand='" + mBrand + '\'' +
-                ", mPrice=" + mPrice +
-                ", mStock=" + mStock +
-                ", mImage=" + mImage +
-                '}';
+        return "mName='" + mName + '\'' +
+                ", mDose='" + mDose + '\'' +
+                ", mBrand='" + mBrand
+                ;
     }
 
+    @Override
+    // Two drugs are the same iff they have same name, brand and dosage
+    // Equals siempre tiene que usar Object
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Product product = (Product) o;
 
+        if (!mName.equals(product.mName)) return false;
+        if (!mDose.equals(product.mDose)) return false;
+        return mBrand.equals(product.mBrand);
+
+    }
+
+    @Override
+    // Si usamos HashSet y HashMap (que generan un hash único por cada elemento distinto)
+    // Debemos tener nuestro propio hash.
+    public int hashCode() {
+        int result = mName.hashCode();
+        result = 31 * result + mDose.hashCode();
+        result = 31 * result + mBrand.hashCode();
+        return result;
+    }
 }
