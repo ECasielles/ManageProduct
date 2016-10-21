@@ -1,5 +1,6 @@
 package com.mercacortex.manageproduct.model;
 
+import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -98,6 +99,11 @@ public class Product {
     public void setmImage(int mImage) {
         this.mImage = mImage;
     }
+
+    // $ is currency, % is the parsed value, s is the general conversion type
+    public String getFormattedPrice() { return String.format("$%s", mPrice); }
+    // We are using Lcale library to access device's internal configuration
+    public String getFormattedUnitsInStock() { return String.format(Locale.getDefault(), "%d u.", mStock); }
 
     @Override
     // Hay que personalizar el toString

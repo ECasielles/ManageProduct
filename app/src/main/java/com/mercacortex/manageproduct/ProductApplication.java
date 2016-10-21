@@ -27,6 +27,14 @@ public class ProductApplication extends Application {
         saveProduct(new Product("Paracetamol", "Sin descripción", "Bastante fuerte", "No", 160.0d, 31415, R.mipmap.ruedas));
         saveProduct(new Product("Equasym", "Por el ojete", "Del tirón", "KKK Laboratories", 320.0d, 666, R.mipmap.sonriente));
         saveProduct(new Product("Concerta", "Da cáncer", "Muy concentrado", "Marca España", 640.0d, 69, R.mipmap.triste));
+        //
+        saveProduct(new Product("Gelocatil", "Con descripcion", "Mucha", "Pepito", 10.0d, 20,R.mipmap.dedo));
+        saveProduct(new Product("Primperán", "Por la boca", "Concentración", "JP Morgan", 20.0d, 14, R.mipmap.gusano));
+        saveProduct(new Product("Buscapina", "En cápsulas", "Concentración", "Marca", 40.0d, 0, R.mipmap.luna));
+        saveProduct(new Product("Apiretal", "Uno al día", "Poca", "Tu madre", 80.0d, 66, R.mipmap.oreja));
+        saveProduct(new Product("Paracetamol", "Sin descripción", "Bastante fuerte", "No", 160.0d, 31415, R.mipmap.ruedas));
+        saveProduct(new Product("Equasym", "Por el ojete", "Del tirón", "KKK Laboratories", 320.0d, 666, R.mipmap.sonriente));
+        saveProduct(new Product("Concerta", "Da cáncer", "Muy concentrado", "Marca España", 640.0d, 69, R.mipmap.triste));
     }
 
 
